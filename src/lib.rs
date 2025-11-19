@@ -1,6 +1,15 @@
-use leptos::{view, IntoView};
+mod components;
+mod pages;
+
 use leptos::prelude::*;
+use leptos::svg::path;
+use leptos::{view, IntoView};
 use leptos_meta::*;
+use leptos_router::components::{Route, Router, Routes};
+use leptos_router::*;
+use leptos::prelude::ElementChild;
+use crate::pages::Page::Home;
+
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -8,6 +17,13 @@ pub fn App() -> impl IntoView {
 
     view! {
         <Stylesheet id="leptos" href="/style/output.css" />
-        <p class="bg-blue-500 text-black">"Hello, world!"</p>
+
+        <Navbar />
+        <Router>
+            <Routes fallback=|| "Not found">
+                <Route path=path!("/") view=Home />
+            </Routes>
+
+        </Router>
     }
 }
