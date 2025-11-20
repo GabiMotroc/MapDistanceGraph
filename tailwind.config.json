@@ -1,0 +1,9 @@
+{
+  "content": [
+    "./src/**/*.rs",
+    "./src/**/*.html"
+  ],
+  "theme": {
+    "extend": {}
+  }
+}

@@ -1,7 +1,5 @@
-mod lib;
-
-use crate::lib::App;
 use leptos::prelude::*;
+use map_distance_graph::App;
 
 fn main() {
     console_error_panic_hook::set_once();

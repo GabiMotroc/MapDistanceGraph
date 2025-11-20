@@ -1,15 +1,14 @@
 mod components;
 mod pages;
 
+use crate::components::navbar::Navbar;
+use crate::pages::home::Home;
+use crate::pages::map::Map;
 use leptos::prelude::*;
-use leptos::svg::path;
 use leptos::{view, IntoView};
 use leptos_meta::*;
 use leptos_router::components::{Route, Router, Routes};
 use leptos_router::*;
-use leptos::prelude::ElementChild;
-use crate::pages::Page::Home;
-
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -17,13 +16,16 @@ pub fn App() -> impl IntoView {
 
     view! {
         <Stylesheet id="leptos" href="/style/output.css" />
-
-        <Navbar />
-        <Router>
-            <Routes fallback=|| "Not found">
-                <Route path=path!("/") view=Home />
-            </Routes>
-
-        </Router>
+        <div class="flex flex-col h-full">
+            <Navbar />
+            <Router>
+                <main class="bg-black text-white flex flex-grow justify-center items-center">
+                    <Routes fallback=|| "Not found">
+                        <Route path=path!("/") view=Home />
+                        <Route path=path!("/map") view=Map />
+                    </Routes>
+                </main>
+            </Router>
+        </div>
     }
 }

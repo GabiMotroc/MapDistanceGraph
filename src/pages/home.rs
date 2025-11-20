@@ -1,7 +1,6 @@
-use leptos::prelude::ClassAttribute;
-use leptos::{component, view, IntoView};
+use leptos::prelude::*;
 
 #[component]
 pub fn Home() -> impl IntoView {
-    view! { <div class="bg-black text-white">Home</div> }
+    view! { <div class="">test</div> }
 }
